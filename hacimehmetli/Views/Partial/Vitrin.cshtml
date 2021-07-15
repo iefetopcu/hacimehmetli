@@ -1,0 +1,23 @@
+﻿@using hacimehmetli.Models.Entity
+@foreach (var vitrin in Model)
+{
+    <div class="item">
+        <div class="media d-block mb-4 text-center ftco-media ftco-animate border-0">
+            <a href="@Url.Action("Urun", "Urunler" , new { id = vitrin.id })">
+                <img src="@vitrin.productphotourl" alt="@vitrin.productname" class="img-fluid">
+                </a>
+            <div class="media-body p-md-5 p-4">
+                <h5 class="text-primary">@vitrin.productprice ₺</h5>
+                <h6>@vitrin.productporsiyon</h6>
+                <a href="@Url.Action("Urun", "Urunler" , new { id = vitrin.id })">
+                    <h1 class="mt-0 h4" style="height:85px;">@vitrin.productname</h1>
+                </a>
+                <p class="mb-4" style="height:120px;">
+                    @MvcHtmlString.Create(vitrin.productdescription.Length > 100 ? vitrin.productdescription.ToString().Substring(0, 100) + "..." : vitrin.productdescription.ToString() + "...")
+                </p>
+                <p class="mb-0"><a href="@Url.Action("SiparisVer", "Urunler" , new { id = vitrin.id })" class="btn btn-primary btn-sm">Sipariş Ver</a></p>
+            </div>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,55 @@
+﻿@using hacimehmetli.Models.Entity
+@{
+    ViewBag.Title = "Mesajlar";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+<div class="page-header row no-gutters py-4">
+    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Mesajlar</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6" style="padding:20px;">
+        <h4>Okunmamış Mesajlar</h4>
+        <hr />
+        @foreach (var okunmamis in Model)
+        {
+            if (okunmamis.isaktif == "true")
+            {
+    <div style=" padding:10px; border-bottom:1px solid #ff6a00">
+        <p><span style="color:#ff6a00">Başlık</span> :@okunmamis.title</p>
+        <p><span style="color:#ff6a00">Kimden</span> : @okunmamis.namesurname</p>
+        <span>
+            <a href="@Url.Action("MesajOku", "Admin", new { id = okunmamis.id })">Detaylar</a> | 
+            <a href="@Url.Action("MesajSil", "Admin", new { id = okunmamis.id })" onclick="return confirm('Bu Mesajı Silmek İstediğine Emin Misin?')">Sil</a>
+        </span>
+    </div>
+               
+               
+            }
+
+        }
+    </div>
+    <div class="col-lg-6" style="padding:20px; border-left:1px solid;">
+        <h4>Okunmuş Mesajlar</h4>
+        <hr />
+        @foreach (var okunmamis in Model)
+        {
+            if (okunmamis.isaktif != "true")
+            {
+                <div style=" padding:10px; border-bottom:1px solid #ff6a00">
+                    <p><span style="color:#ff6a00">Başlık</span> :@okunmamis.title</p>
+                    <p><span style="color:#ff6a00">Kimden</span> : @okunmamis.namesurname</p>
+                    <span>
+                        <a href="@Url.Action("MesajOku", "Admin", new { id = okunmamis.id })">Detaylar</a> |
+                        <a href="@Url.Action("MesajSil", "Admin", new { id = okunmamis.id })" onclick="return confirm('Bu Mesajı Silmek İstediğine Emin Misin?')">Sil</a>
+                    </span>
+                </div>
+
+
+            }
+
+        }
+    </div>
+</div>
+

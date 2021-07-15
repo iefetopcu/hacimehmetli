@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="ftco-section bg-light" id="section-contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md mb-5 ftco-animate" style="color:#ff6a00">
+                <h3>Giriş Yap</h3>
+                <form method="post">
+                    <div class="form-group">
+                        <label for="name" class="sr-only">Name</label>
+                        <input type="email" class="form-control" id="name" placeholder="Email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="password" class="form-control" id="email" placeholder="Şifre" name="password">
+                    </div>
+                   
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-lg" value="Gönder">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,39 @@
+﻿@model hacimehmetli.Models.Entity.contactform
+@{
+    ViewBag.Title = "MesajOku";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+<div class="page-header row no-gutters py-4">
+    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Mesaj Detayları</span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3">Başlık: </div>
+    <div class="col-lg-9">@Model.title</div>
+
+    <div class="col-lg-3">Kimden : </div>
+    <div class="col-lg-9">@Model.namesurname</div>
+    <div class="col-lg-3">Telefon: </div>
+    <div class="col-lg-9">@Model.gsm</div>
+    <div class="col-lg-3">Mesaj Zamanı: </div>
+    <div class="col-lg-9">@Model.messagetime</div>
+    <hr />
+    <div class="col-lg-3">Açıklama: </div>
+    <div class="col-lg-9">@Model.description</div>
+    <hr />
+    <br />
+    <div class="col-lg-12">
+        @if (Model.isaktif == "true")
+        {
+            <a href="@Url.Action("Okundu", "Admin", new { id = Model.id })">Okundu Olarak İşaretle</a>
+        }
+        @if (Model.isaktif != "true")
+        {
+            <a href="@Url.Action("Okunmadi", "Admin", new { id = Model.id })">Okunmadı Olarak İşaretle</a>
+        }
+    </div>
+   
+
+</div>

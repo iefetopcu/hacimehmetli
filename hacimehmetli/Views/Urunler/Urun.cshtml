@@ -1,0 +1,33 @@
+﻿@model hacimehmetli.Models.Entity.producttable
+@{
+    ViewBag.Title = Model.productname;
+    ViewBag.Decription = Model.productdescription;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="ftco-section" id="section-about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 ftco-animate mb-5">
+                <h4 class="ftco-sub-title">ÜRÜNLER</h4>
+                <h2 class="ftco-primary-title display-4">@Model.productname</h2>
+                <p>@Model.productdescription</p><br />
+                <span class="mb-4" style="font-size:20px; color:#808080; margin-right:30px;">@Model.productporsiyon </span> | 
+                <span class="mb-4" style="font-size:20px; color:#ff6a00; margin-left:30px;">@Model.productprice ₺</span>
+                <br /><br />
+                @if (Model.isitinstock == "true")
+                {
+                    <p style="color:#276b10">Stokta Var</p>
+                }
+                else
+                {
+                    <p style="color:#821212">Stokta Yok</p>
+                }
+                <p><a href="@Url.Action("SiparisVer", "Urunler" , new { id = Model.id })" class="btn btn-secondary btn-lg">Sipariş Ver</a></p>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-6 ftco-animate img" data-animate-effect="fadeInRight">
+                <img src="@Model.productphotourl" alt="Odun ateşi" style="width:80%!important">
+            </div>
+        </div>
+    </div>
+</section>

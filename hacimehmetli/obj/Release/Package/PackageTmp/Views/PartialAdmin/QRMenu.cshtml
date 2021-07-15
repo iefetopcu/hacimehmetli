@@ -1,0 +1,41 @@
+﻿@model hacimehmetli.Models.Entity.menu
+
+<form action="@Url.Action("QrMenuEkle", "PartialAdmin")" method="post" enctype="multipart/form-data" class="form-group">
+    <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel">Ürün ekle</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <input type="text" name="urunadi" placeholder="Ürün Adı" required class="form-control" maxlength="65" /><br />
+        <input type="number" name="urunfiyati" placeholder="Ürün Fiyatı - TL " required class="form-control" maxlength="25" /><br />
+        <textarea class="form-control" required placeholder="Ürün Açıklaması" name="urunaciklamasi"></textarea><br />
+        <label>Kategori Seç</label>
+        @Html.DropDownListFor(m => m.categoryid, (List<SelectListItem>)ViewBag.cat, new { @class = "form-control" })
+        <br /><br />
+        <div class="row">
+            <div class="col-6">
+                <input type="checkbox" name="stokdurumu" value="true" checked /> Stokta Var
+            </div>           
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Porsiyon / KG</label>
+            <select id="urunporsiyon" name="urunporsiyon">
+                <option value="Porsiyon">Porsiyon</option>
+                <option value="Yarım Kilo">Yarım Kilo</option>
+                <option value="750 Gram">750 Gram</option>
+                <option value="1 Kilo">1 Kilo</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Ürün Fotoğrafı</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="urunphotourl" required>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+        <input type="submit" class="btn btn-primary" value="Ekle" />
+    </div>
+</form>

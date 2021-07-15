@@ -1,0 +1,144 @@
+﻿@{
+    ViewBag.Title = "Anasayfa";
+}
+<style>
+    .imagesheight {
+        height: 250px !important;
+    }
+</style>
+@*<section class="ftco-cover" style="background-image: url(../../images/odunatesibanner.jpg);" id="section-home">
+    <div class="container">
+        <div class="row align-items-center justify-content-center text-center ftco-vh-100">
+            <div class="col-md-12">
+                <h1 class="ftco-heading ftco-animate mb-3">HACI MEHMET ETLİ</h1>
+                <h2 class="h5 ftco-subheading mb-5 ftco-animate">Odun Ateşinde pişen mükemmel lezzetler.</h2>
+                <p><a href="@Url.Action("SiparisVer","Urunler")" class="btn btn-outline-white btn-lg ftco-animate">Hemen Sipariş Ver</a></p>
+            </div>
+        </div>
+    </div>
+</section>*@
+<section class="ftco-section bgsoftyesil" id="section-offer" style="padding-right:0px!important; padding-left:0px!important; padding-top:-5px;"> 
+    <div class="container-fluid" style="margin:0px; padding:0px;">
+        
+            <div class="col-md-12 text-center ftco-animate" style="padding-right:0px!important; padding-left:0px!important; ">                           
+               @{Html.RenderAction("Slider", "Partial");}                 
+            </div>           
+        
+    </div>
+</section>
+<section class="ftco-section bgsoftyesil" id="section-about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 ftco-animate mb-5">
+                <h4 class="ftco-sub-title">Hikayemiz</h4>
+                <h2 class="ftco-primary-title display-4">Odun Ateşi</h2>
+                <p>Nezaketimizi ve dürüstlüğümüzü hamura işledik...</p>
+                <p class="mb-4">0,05 mm kalınlığındaki ince hamurumuz, KahramanMARAŞ yöresine ait, lezzetimize lezzet katan, koyun yağı ve bol fıstık ile buluştu. Lezzetini unutamayacağınız bir ana şahitlik ederken kendinizi bulduğunuzda, odun ateşinde pişen baklavamızın farkını damağınızda hissedeceksiniz.</p>
+                <p><a href="@Url.Action("Index","Hakkimizda")" class="btn btn-secondary btn-lg">Hakkımızda</a></p>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-6 ftco-animate img" data-animate-effect="fadeInRight">
+                <img src="~/images/OdunAtesi.png" alt="Odun ateşi" style="width:80%!important;">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section bgsoftyesil" id="section-offer">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12 text-center mb-5 ftco-animate">
+                
+                <h2 class="display-4">Vitrin</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-7">
+                        <p class="lead">En popüler ürünlerimizi vitrinimizde görebilirsiniz.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="owl-carousel ftco-owl">
+                    @{Html.RenderAction("Vitrin", "Partial");}
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="ftco-section bgsoftyesil" id="section-gallery">
+    <div class="container">
+        <div class="row ftco-custom-gutters">
+            
+            <div class="col-md-12 text-center mb-5 ftco-animate">
+                <h2 class="display-4">Fotoğraf Galerisi</h2>
+                <div class="row justify-content-center">
+
+                </div>
+            </div>
+
+            <div class="col-md-4 ftco-animate">
+                <a href="~/images/Anasayfa2.PNG" class="ftco-thumbnail image-popup">
+                    <img src="~/images/Anasayfa2.PNG" alt="Hacı Mehmet Etli Baklava" class="img-fluid imagesheight">
+                </a>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <a href="~/images/Anasayfa3.PNG" class="ftco-thumbnail image-popup">
+                    <img src="~/images/Anasayfa3.PNG" alt="Hacı Mehmet Etli Baklava" class="img-fluid imagesheight">
+                </a>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <a href="~/images/Anasayfa4.PNG" class="ftco-thumbnail image-popup">
+                    <img src="~/images/Anasayfa4.PNG" alt="Hacı Mehmet Etli Baklava" class="img-fluid imagesheight">
+                </a>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <a href="~/images/Anasayfa7.PNG" class="ftco-thumbnail image-popup">
+                    <img src="~/images/Anasayfa7.PNG" alt="Hacı Mehmet Etli Baklava" class="img-fluid imagesheight">
+                </a>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <a href="~/images/Anasayfa8.PNG" class="ftco-thumbnail image-popup">
+                    <img src="~/images/Anasayfa8.PNG" alt="Hacı Mehmet Etli Baklava" class="img-fluid imagesheight">
+                </a>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <a href="~/images/Anasayfa9.PNG" class="ftco-thumbnail image-popup">
+                    <img src="~/images/Anasayfa9.PNG" alt="Hacı Mehmet Etli Baklava" class="img-fluid imagesheight">
+                </a>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <a href="~/images/Anasayfa5.PNG" class="ftco-thumbnail image-popup">
+                    <img src="~/images/Anasayfa5.PNG" alt="Hacı Mehmet Etli Baklava" class="img-fluid imagesheight">
+                </a>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <a href="~/images/Anasayfa6.PNG" class="ftco-thumbnail image-popup">
+                    <img src="~/images/Anasayfa6.PNG" alt="Hacı Mehmet Etli Baklava" class="img-fluid imagesheight">
+                </a>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <a href="~/images/Anasayfa1.PNG" class="ftco-thumbnail image-popup">
+                    <img src="~/images/Anasayfa1.PNG" alt="Hacı Mehmet Etli Baklava" class="img-fluid imagesheight">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container-fluid bgsoftyesil" style="background-color:#fba160;">
+    <div class="container">
+        <div class="row mt-5">
+
+            <div class="col-lg-6 mt-5 mb-5" style="font-family:Tahoma">
+                <h2 style="color:white;">Online Satışımız <br />Çok Yakında Sizlerle!</h2>
+                <br />
+                <p style="color:white;">Hacı Mehmet Etli lezzetlerini çok sizlerle buluşturmak için online satışımız yakında sizlerle!</p>
+            </div>
+            <div class="col-lg-6 mt-5 mb-5">
+                <img src="~/images/kutu.png" style="margin-top:-120px; width:100%!important;"/>
+            </div>
+        </div>
+    </div>
+    
+</div>

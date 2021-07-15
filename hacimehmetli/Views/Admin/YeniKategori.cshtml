@@ -1,0 +1,28 @@
+﻿@model hacimehmetli.Models.Entity.categorytable
+@{
+    ViewBag.Title = "YeniKategori";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<div class="page-header row no-gutters py-4">
+    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Yeni Ürün Kategorisi</span>
+    </div>
+</div>
+
+
+<form method="post" action="">
+    <div class="form-group">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Kategori Adı" aria-label="Username" aria-describedby="basic-addon1" name="categoryname">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-5">
+            <input type="submit" value="Ekle" class="form-group" />
+        </div>
+    </div>
+</form>

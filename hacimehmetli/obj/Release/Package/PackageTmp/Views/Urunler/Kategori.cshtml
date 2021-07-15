@@ -1,0 +1,92 @@
+﻿@using hacimehmetli.Models.Entity
+@{
+    ViewBag.Title = @ViewBag.Categoryname;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .menulist {
+        float: left;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-decoration: none;
+        list-style: none;
+        margin-bottom: 25px !important;
+        border-left: 1px solid;
+    }
+
+        .menulist a {
+            font-size: 16px !important;
+        }
+
+            .menulist a:hover {
+                font-size: 18px !important;
+            }
+</style>
+
+<section class="ftco-section bg-light" id="section-offer">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12 text-center mb-5 ftco-animate">
+                <ul>
+                    <li class="menulist"><a href="@Url.Action("Index", "Urunler")">Çok Satanlar</a></li>
+                    @{Html.RenderAction("Kategoriler", "Partial");}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center mb-5 ftco-animate">
+                <h4 class="ftco-sub-title">ÜRÜNLER</h4>
+                <h2 class="display-4">@ViewBag.Categoryname</h2>
+
+
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var productlist in Model)
+            {
+
+                <div class="col-md-4">
+                    <div class="ftco-owl">
+                        <div class="item">
+                            <div class="media d-block mb-4 text-center ftco-media ftco-animate border-0">
+                                <a href="@Url.Action("Urun", "Urunler" , new { id = productlist.id })">
+                                    <img src="@productlist.productphotourl" alt="@productlist.productphotourl" class="img-fluid">
+                                </a>
+                                <div class="media-body p-md-5 p-4">
+                                    <h5 class="text-primary">@productlist.productprice TL</h5>
+                                    <h6>@productlist.productporsiyon</h6>
+                                    <a href="@Url.Action("Urun", "Urunler" , new { id = productlist.id })">
+                                        <h5 class="mt-0 h4" style="height:85px;">@productlist.productname</h5>
+                                    </a>
+                                    <p class="mb-4" style="height:120px;">
+                                        @MvcHtmlString.Create(productlist.productdescription.Length > 100 ? productlist.productdescription.ToString().Substring(0, 100) + "...": productlist.productdescription.ToString() +"...") 
+                                    </p>
+                                    
+                                   
+                                    @*@if (productlist.productdescription.Content.Lenght >= 100)
+                                    {
+                                        <p class="mb-4" style="height:200px;">@productlist.productdescription.Substring(0, 20) ...</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="mb-4" style="height:200px;">@productlist.productdescription ...</p>
+                                    }*@
+
+
+
+
+
+
+                                    <p class="mb-0"><a href="@Url.Action("SiparisVer", "Urunler" , new { id = productlist.id })" class="btn btn-primary btn-sm">Sipariş Ver!</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+       
+
+    </div>
+</section>

@@ -1,0 +1,142 @@
+﻿@model hacimehmetli.Models.Entity.producttable
+@{
+    ViewBag.Title = "UrunDuzenle";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<div class="page-header row no-gutters py-4">
+    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Ürün Düzenle </span>
+    </div>
+</div>
+
+@using (Html.BeginForm("UrunDuzenle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="main-content-container container-fluid px-12">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="card card-small mb-9">
+                    <div class="card-body">
+                        <label>Ürün Adı - 65 Karakter</label>
+                        @Html.TextBoxFor(m => m.productname, new { @class = "form-control form-control-lg mb-3", @maxlength = "65" })
+                        <label>Ürün Fiyatı - TL</label>
+                        @Html.TextBoxFor(m => m.productprice, new { @class = "form-control form-control-lg mb-3", @maxlength = "25" })
+                        <label>Ürün Açıklaması - 170 karakter</label>
+                        @Html.TextAreaFor(m => m.productdescription, new { @class = "form-control form-control-lg mb-3", @maxlength = "170" })
+                        
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class='card card-small mb-3'>
+                    <div class="card-header border-bottom">
+                        <h6 class="m-0">Fotoğraf ve Ayarlar</h6>
+                    </div>
+                    <div class='card-body p-0'>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item p-3">
+                                <span class="d-flex mb-2">
+                                    <i class="material-icons mr-1">border_color</i>
+                                    <strong class="mr-1">Kategori </strong>
+                                    @Html.DropDownListFor(m => m.categoryid, (List<SelectListItem>)ViewBag.cat, new { @class = "ml-auto" })
+                                </span>
+                                <span class="d-flex mb-2">
+                                    <i class="material-icons mr-1">border_color</i>
+                                    <strong class="mr-1">Porsiyon </strong>
+                       
+                                    <select id="productporsiyon" name="productporsiyon" class="ml-auto">
+                                        @if (Model.productporsiyon == "Porsiyon")
+                                        {
+                                            <option value="Porsiyon" selected>Porsiyon</option>
+                                            <option value="Yarım Kilo">Yarım Kilo</option>
+                                            <option value="750 Gram">750 Gram</option>
+                                            <option value="1 Kilo">1 Kilo</option>
+                                        }
+                                        @if (Model.productporsiyon == "Yarım Kilo")
+                                        {
+                                            <option value="Yarım Kilo" selected>Yarım Kilo</option>
+                                            <option value="Porsiyon">Porsiyon</option>
+                                            <option value="750 Gram">750 Gram</option>
+                                            <option value="1 Kilo">1 Kilo</option>
+                                        }
+                                        @if (Model.productporsiyon == "750 Gram")
+                                        {
+                                            <option value="750 Gram" selected>750 Gram</option>
+                                            <option value="Porsiyon">Porsiyon</option>
+                                            <option value="Yarım Kilo">Yarım Kilo</option>
+
+                                            <option value="1 Kilo">1 Kilo</option>
+                                        }
+                                        @if (Model.productporsiyon == "1 Kilo")
+                                        {
+                                            <option value="1 Kilo" selected>1 Kilo</option>
+                                            <option value="Porsiyon">Porsiyon</option>
+                                            <option value="Yarım Kilo">Yarım Kilo</option>
+                                            <option value="750 Gram">750 Gram</option>
+
+                                        }
+                                        @if (Model.productporsiyon == null)
+                                        {
+                                            <option value="Porsiyon">Porsiyon</option>
+                                            <option value="Yarım Kilo">Yarım Kilo</option>
+                                            <option value="750 Gram">750 Gram</option>
+                                            <option value="1 Kilo">1 Kilo</option>
+                                        }
+
+
+                                    </select>
+                                    
+                                </span>
+                                <span class="d-flex mb-2">
+
+
+                                    @if (Model.isitinstock == "true")
+                                    {
+                                        <input type="checkbox" name="isitinstock" value="true" checked />
+                                    }
+                                    else
+                                    {
+                                        <input type="checkbox" name="isitinstock" value="true" />
+                                    }
+                                    <strong style="margin-right:30px; margin-left:10px;"> Stok </strong>
+                                    @if (Model.vitrin == "true")
+                                    {
+                                        <input type="checkbox" name="vitrin" value="true" checked />
+                                    }
+                                    else
+                                    {
+                                        <input type="checkbox" name="vitrin" value="true" />
+                                    }
+                                    <strong style="margin-right:30px; margin-left:10px;"> Vitrin </strong>
+                                    @if (Model.topsale == "true")
+                                    {
+                                        <input type="checkbox" name="topsale" value="true" checked />
+                                    }
+                                    else
+                                    {
+                                        <input type="checkbox" name="topsale" value="true" />
+                                    }
+                                    <strong style="margin-right:30px; margin-left:10px;"> Çok Satanlar </strong>
+                                </span><br /><br />
+                                <span class="d-flex mb-2">
+                                    <strong class="ml-1">
+                                        <img src="@Model.productphotourl" style="width:100%!important;" />
+                                        Fotoğrafı Değiştir<br />
+                                        <input type="file" name="productphotourl" />
+                                    </strong>
+                                </span>
+                            </li>
+                            <li class="list-group-item d-flex px-3">
+                                <button class="btn btn-sm btn-accent ml-auto">
+                                    <i class="material-icons">file_copy</i> Kaydet
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

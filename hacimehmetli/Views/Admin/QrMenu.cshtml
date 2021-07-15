@@ -1,0 +1,57 @@
+﻿@using hacimehmetli.Models.Entity
+@{
+    ViewBag.Title = "QrMenu";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+<script>
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+    })
+</script>
+<div class="page-header row no-gutters py-4">
+    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">QR MENU</span>
+    </div>
+</div>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Menuye Ürün Ekle
+</button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Ürün Adı</th>
+            <th scope="col">Ürün Kategorisi</th>
+            <th scope="col">Porsiyon</th>
+            <th scope="col">Fiyat</th>
+            <th scope="col">İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var qrmenu in Model)
+        {
+            <tr>
+                <th scope="row">@qrmenu.id</th>
+                <td>@qrmenu.urunadi</td>
+                <td>@qrmenu.categorytable.categoryname</td>
+                <td>@qrmenu.urunporsiyon</td>
+                <td>@qrmenu.urunfiyati ₺ </td>
+                <td>
+                    <a href="@Url.Action("QrMenuSil", "Admin" , new { id = qrmenu.id })"><button type="button" class="btn btn-danger">Sil</button></a>
+                    <a href="@Url.Action("QrMenuDuzenle", "Admin" , new { id = qrmenu.id })"><button type="button" class="btn btn-info">Düzenle</button></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            @{Html.RenderAction("QRMenu", "PartialAdmin");}
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,7 @@
+﻿
+@using hacimehmetli.Models.Entity
+
+@foreach (var footercategory in Model)
+{
+    <li><a href="@Url.Action("Kategori", "Urunler" , new {id = footercategory.id})">@footercategory.categoryname</a></li>
+}

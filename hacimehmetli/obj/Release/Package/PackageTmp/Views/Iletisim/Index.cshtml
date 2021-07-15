@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "İletişim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (ViewBag.success == "ok")
+{
+    <section class="ftco-section bg-light" id="section-contact" style="margin-bottom:0px!important; padding-bottom:0px!important;">
+        <div class="container">
+            <div class="row">
+
+                <div class="alert alert-success text-center" style="width:100%!important;" role="alert">
+                    <h4 class="alert-heading text-center">Başarılı !</h4>
+                    <p>Mesajınız bize ulaştı size en kısa süre içersinde cevap vereceğiz.</p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+}
+<section class="ftco-section bgsoftyesil" id="section-contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center mb-5 ftco-animate">
+                <h2 class="display-4" style="color:#ff6a00"></h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.580402980628!2d28.8778446151867!3d41.07816367929377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab03e4b1d3de1%3A0x4cdb56004e134071!2sKaradeniz%2C%20Mehmet%20Akif%20Cd.%20No%3A16%2C%2034250%20Gaziosmanpa%C5%9Fa%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1619136440354!5m2!1str!2str" height="325" style="border:0; width:100%!important;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 mb-5">
+                <div class="row">
+                    <div class="col-md-4" style="color:black!important;">
+                        <b>Telefon</b><br /><a href="tel:+902125373346">0212 537 33 46</a>
+                        <br /> <a href="tel:+905013360046">0501 336 00 46</a>
+
+
+                    </div>
+                    <div class="col-md-4" style="color:black!important;">
+
+                        <b>E-Mail</b> <br /><a href="mailto:info@hacimehmetetli.com">info@hacimehmetetli.com</a>
+
+                    </div>
+                    <div class="col-md-4" style="color:black!important;">
+                        <b>Adres</b> <br />Karadeniz Mahallesi Mehmet Akif Cd. No: 16<br />Gaziosmanpaşa, İstanbul, Türkiye
+                    </div>
+                </div>
+            </div>
+            <div class="col-md mb-5 ftco-animate" style="color:#ff6a00">
+                <p>Aşağıdaki formu kullanarak bizimle iletişime geçebilirsiniz.</p>
+                <form method="post">
+                    <div class="form-group">
+                        <label for="name" class="sr-only">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="İsim Soyisim" name="namesurname">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="text" class="form-control" id="email" placeholder="Telefon Numarası" name="gsm">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="text" class="form-control" id="email" placeholder="Başlık" name="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="sr-only">Message</label>
+                        <textarea name="description" id="message" cols="30" rows="10" class="form-control" placeholder="Mesajınızı Yazın"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-lg" value="Gönder">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+

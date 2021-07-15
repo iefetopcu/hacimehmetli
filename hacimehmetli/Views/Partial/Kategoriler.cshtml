@@ -1,0 +1,6 @@
+﻿@using hacimehmetli.Models.Entity
+
+@foreach (var categorylist in Model)
+{
+    <li class="menulist"><a href="@Url.Action("Kategori", "Urunler" , new {id = categorylist.id})">@categorylist.categoryname</a></li>
+}

@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="hacimehmetliModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="categorytable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoryname" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="contactform">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="namesurname" Type="varchar(max)" />
+          <Property Name="gsm" Type="varchar(max)" />
+          <Property Name="title" Type="varchar(max)" />
+          <Property Name="description" Type="varchar(max)" />
+          <Property Name="isaktif" Type="varchar(max)" />
+          <Property Name="messagetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoryid" Type="bigint" />
+          <Property Name="urunadi" Type="varchar(max)" />
+          <Property Name="urunphotourl" Type="varchar(max)" />
+          <Property Name="urunaciklamasi" Type="varchar(max)" />
+          <Property Name="urunporsiyon" Type="varchar(max)" />
+          <Property Name="urunfiyati" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="stokdurumu" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="orderstatus">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="status" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="ordertable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productid" Type="bigint" />
+          <Property Name="statusid" Type="bigint" />
+          <Property Name="piece" Type="bigint" />
+          <Property Name="description" Type="varchar(max)" />
+          <Property Name="adress" Type="varchar(max)" />
+          <Property Name="gsm" Type="varchar(max)" />
+          <Property Name="namesurname" Type="varchar(max)" />
+          <Property Name="deliverydate" Type="datetime" />
+          <Property Name="creationdate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="producttable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoryid" Type="bigint" />
+          <Property Name="productname" Type="varchar(max)" />
+          <Property Name="productdescription" Type="varchar(max)" />
+          <Property Name="producturl" Type="varchar(max)" />
+          <Property Name="productphotourl" Type="varchar(max)" />
+          <Property Name="productprice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="productporsiyon" Type="varchar(max)" />
+          <Property Name="isaktif" Type="bigint" />
+          <Property Name="isitinstock" Type="varchar(max)" />
+          <Property Name="vitrin" Type="varchar(max)" />
+          <Property Name="topsale" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="usertable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="varchar(max)" />
+          <Property Name="photourl" Type="varchar(max)" />
+          <Property Name="name" Type="varchar(max)" />
+          <Property Name="surname" Type="varchar(max)" />
+          <Property Name="password" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK_menu_categorytable">
+          <End Role="categorytable" Type="Self.categorytable" Multiplicity="0..1" />
+          <End Role="menu" Type="Self.menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorytable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="menu">
+              <PropertyRef Name="categoryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ordertable_orderstatus">
+          <End Role="orderstatus" Type="Self.orderstatus" Multiplicity="0..1" />
+          <End Role="ordertable" Type="Self.ordertable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orderstatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ordertable">
+              <PropertyRef Name="statusid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ordertable_producttable">
+          <End Role="producttable" Type="Self.producttable" Multiplicity="0..1" />
+          <End Role="ordertable" Type="Self.ordertable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producttable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ordertable">
+              <PropertyRef Name="productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_producttable_categorytable">
+          <End Role="categorytable" Type="Self.categorytable" Multiplicity="0..1" />
+          <End Role="producttable" Type="Self.producttable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorytable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="producttable">
+              <PropertyRef Name="categoryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="hacimehmetliModelStoreContainer">
+          <EntitySet Name="categorytable" EntityType="Self.categorytable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contactform" EntityType="Self.contactform" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orderstatus" EntityType="Self.orderstatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ordertable" EntityType="Self.ordertable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="producttable" EntityType="Self.producttable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usertable" EntityType="Self.usertable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_menu_categorytable" Association="Self.FK_menu_categorytable">
+            <End Role="categorytable" EntitySet="categorytable" />
+            <End Role="menu" EntitySet="menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ordertable_orderstatus" Association="Self.FK_ordertable_orderstatus">
+            <End Role="orderstatus" EntitySet="orderstatus" />
+            <End Role="ordertable" EntitySet="ordertable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ordertable_producttable" Association="Self.FK_ordertable_producttable">
+            <End Role="producttable" EntitySet="producttable" />
+            <End Role="ordertable" EntitySet="ordertable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_producttable_categorytable" Association="Self.FK_producttable_categorytable">
+            <End Role="categorytable" EntitySet="categorytable" />
+            <End Role="producttable" EntitySet="producttable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="hacimehmetliModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="categorytable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="menus" Relationship="Self.FK_menu_categorytable" FromRole="categorytable" ToRole="menu" />
+          <NavigationProperty Name="producttables" Relationship="Self.FK_producttable_categorytable" FromRole="categorytable" ToRole="producttable" />
+        </EntityType>
+        <EntityType Name="contactform">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="namesurname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="gsm" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isaktif" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="messagetime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryid" Type="Int64" />
+          <Property Name="urunadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="urunphotourl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="urunaciklamasi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="urunporsiyon" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="urunfiyati" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="stokdurumu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="categorytable" Relationship="Self.FK_menu_categorytable" FromRole="menu" ToRole="categorytable" />
+        </EntityType>
+        <EntityType Name="orderstatu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ordertables" Relationship="Self.FK_ordertable_orderstatus" FromRole="orderstatus" ToRole="ordertable" />
+        </EntityType>
+        <EntityType Name="ordertable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productid" Type="Int64" />
+          <Property Name="statusid" Type="Int64" />
+          <Property Name="piece" Type="Int64" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="gsm" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="namesurname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="deliverydate" Type="DateTime" Precision="3" />
+          <Property Name="creationdate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="orderstatu" Relationship="Self.FK_ordertable_orderstatus" FromRole="ordertable" ToRole="orderstatus" />
+          <NavigationProperty Name="producttable" Relationship="Self.FK_ordertable_producttable" FromRole="ordertable" ToRole="producttable" />
+        </EntityType>
+        <EntityType Name="producttable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryid" Type="Int64" />
+          <Property Name="productname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="productdescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="producturl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="productphotourl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="productprice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="productporsiyon" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isaktif" Type="Int64" />
+          <Property Name="isitinstock" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="vitrin" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="topsale" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="categorytable" Relationship="Self.FK_producttable_categorytable" FromRole="producttable" ToRole="categorytable" />
+          <NavigationProperty Name="ordertables" Relationship="Self.FK_ordertable_producttable" FromRole="producttable" ToRole="ordertable" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="usertable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="photourl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_menu_categorytable">
+          <End Role="categorytable" Type="Self.categorytable" Multiplicity="0..1" />
+          <End Role="menu" Type="Self.menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorytable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="menu">
+              <PropertyRef Name="categoryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_producttable_categorytable">
+          <End Role="categorytable" Type="Self.categorytable" Multiplicity="0..1" />
+          <End Role="producttable" Type="Self.producttable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorytable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="producttable">
+              <PropertyRef Name="categoryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ordertable_orderstatus">
+          <End Role="orderstatus" Type="Self.orderstatu" Multiplicity="0..1" />
+          <End Role="ordertable" Type="Self.ordertable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orderstatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ordertable">
+              <PropertyRef Name="statusid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ordertable_producttable">
+          <End Role="producttable" Type="Self.producttable" Multiplicity="0..1" />
+          <End Role="ordertable" Type="Self.ordertable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producttable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ordertable">
+              <PropertyRef Name="productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="hacimehmetliEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="categorytables" EntityType="Self.categorytable" />
+          <EntitySet Name="contactforms" EntityType="Self.contactform" />
+          <EntitySet Name="menus" EntityType="Self.menu" />
+          <EntitySet Name="orderstatus" EntityType="Self.orderstatu" />
+          <EntitySet Name="ordertables" EntityType="Self.ordertable" />
+          <EntitySet Name="producttables" EntityType="Self.producttable" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="usertables" EntityType="Self.usertable" />
+          <AssociationSet Name="FK_menu_categorytable" Association="Self.FK_menu_categorytable">
+            <End Role="categorytable" EntitySet="categorytables" />
+            <End Role="menu" EntitySet="menus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_producttable_categorytable" Association="Self.FK_producttable_categorytable">
+            <End Role="categorytable" EntitySet="categorytables" />
+            <End Role="producttable" EntitySet="producttables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ordertable_orderstatus" Association="Self.FK_ordertable_orderstatus">
+            <End Role="orderstatus" EntitySet="orderstatus" />
+            <End Role="ordertable" EntitySet="ordertables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ordertable_producttable" Association="Self.FK_ordertable_producttable">
+            <End Role="producttable" EntitySet="producttables" />
+            <End Role="ordertable" EntitySet="ordertables" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="hacimehmetliModelStoreContainer" CdmEntityContainer="hacimehmetliEntities">
+          <EntitySetMapping Name="categorytables">
+            <EntityTypeMapping TypeName="hacimehmetliModel.categorytable">
+              <MappingFragment StoreEntitySet="categorytable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="categoryname" ColumnName="categoryname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contactforms">
+            <EntityTypeMapping TypeName="hacimehmetliModel.contactform">
+              <MappingFragment StoreEntitySet="contactform">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="namesurname" ColumnName="namesurname" />
+                <ScalarProperty Name="gsm" ColumnName="gsm" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+                <ScalarProperty Name="messagetime" ColumnName="messagetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="menus">
+            <EntityTypeMapping TypeName="hacimehmetliModel.menu">
+              <MappingFragment StoreEntitySet="menu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+                <ScalarProperty Name="urunadi" ColumnName="urunadi" />
+                <ScalarProperty Name="urunphotourl" ColumnName="urunphotourl" />
+                <ScalarProperty Name="urunaciklamasi" ColumnName="urunaciklamasi" />
+                <ScalarProperty Name="urunporsiyon" ColumnName="urunporsiyon" />
+                <ScalarProperty Name="urunfiyati" ColumnName="urunfiyati" />
+                <ScalarProperty Name="stokdurumu" ColumnName="stokdurumu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orderstatus">
+            <EntityTypeMapping TypeName="hacimehmetliModel.orderstatu">
+              <MappingFragment StoreEntitySet="orderstatus">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ordertables">
+            <EntityTypeMapping TypeName="hacimehmetliModel.ordertable">
+              <MappingFragment StoreEntitySet="ordertable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="statusid" ColumnName="statusid" />
+                <ScalarProperty Name="piece" ColumnName="piece" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="adress" ColumnName="adress" />
+                <ScalarProperty Name="gsm" ColumnName="gsm" />
+                <ScalarProperty Name="namesurname" ColumnName="namesurname" />
+                <ScalarProperty Name="deliverydate" ColumnName="deliverydate" />
+                <ScalarProperty Name="creationdate" ColumnName="creationdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="producttables">
+            <EntityTypeMapping TypeName="hacimehmetliModel.producttable">
+              <MappingFragment StoreEntitySet="producttable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+                <ScalarProperty Name="productname" ColumnName="productname" />
+                <ScalarProperty Name="productdescription" ColumnName="productdescription" />
+                <ScalarProperty Name="producturl" ColumnName="producturl" />
+                <ScalarProperty Name="productphotourl" ColumnName="productphotourl" />
+                <ScalarProperty Name="productprice" ColumnName="productprice" />
+                <ScalarProperty Name="productporsiyon" ColumnName="productporsiyon" />
+                <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+                <ScalarProperty Name="isitinstock" ColumnName="isitinstock" />
+                <ScalarProperty Name="vitrin" ColumnName="vitrin" />
+                <ScalarProperty Name="topsale" ColumnName="topsale" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="hacimehmetliModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usertables">
+            <EntityTypeMapping TypeName="hacimehmetliModel.usertable">
+              <MappingFragment StoreEntitySet="usertable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="photourl" ColumnName="photourl" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,19 @@
+﻿@model hacimehmetli.Models.Entity.categorytable
+@{
+    ViewBag.Title = "KategoriDuzenle";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<div class="page-header row no-gutters py-4">
+    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Kategori Düzenle</span>
+    </div>
+</div>
+
+@using (Html.BeginForm("KategoriDuzenle", "Admin", FormMethod.Post))
+
+{   
+    @Html.TextBoxFor(m => m.categoryname, new { @class = "form-control" })
+    <br />   
+    <button class="btn btn-info">Güncelle</button>
+}

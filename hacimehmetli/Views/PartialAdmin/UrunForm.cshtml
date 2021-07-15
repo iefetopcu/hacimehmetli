@@ -1,0 +1,65 @@
+﻿@model hacimehmetli.Models.Entity.producttable
+
+<form action="@Url.Action("UrunEkle", "PartialAdmin")" method="post" enctype="multipart/form-data" class="form-group">
+    <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel">Ürün ekle</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <input type="text" name="productname" placeholder="Ürün Adı" required class="form-control" maxlength="65" /><br />
+        <input type="number" name="productprice" placeholder="Ürün Fiyatı - TL " required class="form-control" maxlength="25" /><br />       
+        <textarea class="form-control" required placeholder="Ürün Açıklaması" name="productdescription"></textarea><br />
+        <div class="row">
+            <div class="col-lg-4">
+                <label>Kategori Seç</label>
+            </div>
+            <div class="col-lg-8">
+                @Html.DropDownListFor(m => m.categoryid, (List<SelectListItem>)ViewBag.cat, new { @class = "form-control" })
+            </div>
+        </div>         
+        <br /><br />
+        <div class="row">
+            <div class="col-6">
+                <input type="checkbox" name="isinstock" value="true" checked/>Stokta Var
+            </div>
+            <div class="col-6">
+                
+                <input type="checkbox" name="vitrin" value="true" /> Vitrinde Göster
+            </div>
+            <div class="col-6">
+                <input type="checkbox" name="topsale" value="true" /> Çok Satanlarda Göster
+            </div>      
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-4">
+                <label class="form-group">Porsiyon Seç </label>
+            </div>
+            <div class="col-lg-8">
+                <select id="productporsiyon" name="productporsiyon" class="form-control">
+                    <option value="Porsiyon">Porsiyon</option>
+                    <option value="Yarım Kilo">Yarım Kilo</option>
+                    <option value="750 Gram">750 Gram</option>
+                    <option value="1 Kilo">1 Kilo</option>
+                </select>
+            </div>
+            
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <label for="exampleFormControlFile1">Ürün Fotoğrafı</label>
+            </div>
+            <div class="col-lg-8">
+                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="productphotourl" required>
+            </div>
+        </div>   
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+        <input type="submit" class="btn btn-primary" value="Ekle" />
+    </div>
+</form>

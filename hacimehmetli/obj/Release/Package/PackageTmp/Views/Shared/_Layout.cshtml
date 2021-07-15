@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RV69GRCY0V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-RV69GRCY0V');
+    </script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="~/images/baklava2.ico" type="image/x-icon" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Hacı Mehmet Etli Baklava</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content=@ViewBag.Description />
+    <meta name="keywords" content="free bootstrap 4, free bootstrap 4 template, free website templates, free html5, free template, free website template, html5, css3, mobile first, responsive" />
+    <link rel="stylesheet" href="~/cssui/bootstrap.min.css">
+    <link rel="stylesheet" href="~/cssui/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/cssui/animate.css">
+    <link rel="stylesheet" href="~/cssui/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/cssui/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/cssui/magnific-popup.css">
+    <link rel="stylesheet" href="~/cssui/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/cssui/jquery.timepicker.css">
+    <link rel="stylesheet" href="~/cssui/icomoon.css">
+    <link rel="stylesheet" href="~/cssui/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <style>
+        .bgsoftyesil{
+            background-color:#ecfff4;
+        }
+
+        .openBtn {
+            background: #f1f1f1;
+            border: none;
+            padding: 10px 15px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+            .openBtn:hover {
+                background: #bbb;
+            }
+
+        .overlay {
+            height: 100%;
+            width: 100%;
+            display: none;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0, 0.9);
+        }
+
+        .overlay-content {
+            position: relative;
+            top: 46%;
+            width: 80%;
+            text-align: center;
+            margin-top: 30px;
+            margin: auto;
+        }
+
+        .overlay .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+            cursor: pointer;
+            color: white;
+        }
+
+            .overlay .closebtn:hover {
+                color: #ccc;
+            }
+
+        .overlay input[type=text] {
+            padding: 15px;
+            font-size: 17px;
+            border: none;
+            float: left;
+            width: 80%;
+            background: white;
+        }
+
+            .overlay input[type=text]:hover {
+                background: #f1f1f1;
+            }
+
+        .overlay button {
+            float: left;
+            width: 20%;
+            padding: 15px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+            .overlay button:hover {
+                background: #bbb;
+            }
+
+        .whatsapp a {
+            color: white;
+            text-decoration: none;
+            font-size: 50px;
+        }
+
+        svg:not(:root).svg-inline--fa {
+            overflow: visible;
+        }
+
+        .whatsapp .icon {
+            margin-right: 30px;
+            color: white;
+            font-size: 50px;
+        }
+
+        .svg-inline--fa.fa-w-14 {
+            width: .875em;
+        }
+
+        .svg-inline--fa {
+            display: inline-block;
+            font-size: inherit;
+            height: 1em;
+            overflow: visible;
+            vertical-align: -.125em;
+        }
+
+        svg {
+            overflow: hidden;
+            vertical-align: middle;
+        }
+
+        .whatsapp:hover {
+            right: -35px;
+            top: 50%;
+            opacity: 1;
+        }
+
+        .whatsapp {
+            background-color: green;
+            width: 400px;
+            height: 100px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 700;
+            position: fixed;
+            z-index: 1000;
+            right: -300px;
+            top: 50%;
+            transition: all .3s;
+            line-height: 100px;
+            padding-left: 30px;
+            opacity: 0.5;
+        }
+
+        .menucolor {
+            color: #c2b784 !important;
+        }
+
+            .menucolor hover {
+                color: #f29f44 !important;
+            }
+    </style>
+</head>
+<body data-spy="scroll" data-target="#ftco-navbar" data-offset="200">
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")" style="padding:-5px!important; margin:-5px!important;"> <img src="~/images/hacilogo.png" height="85px" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="@Url.Action("Index", "Home")" class="nav-link menucolor">Anasayfa</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Index", "Urunler")" class="nav-link menucolor">Ürünler</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Index", "Hakkimizda")" class="nav-link menucolor">Hakkımızda</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Index", "Iletisim")" class="nav-link menucolor">İletişim</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link menucolor"  onclick="openSearch()"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+               
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+    <div class="whatsapp">
+        <svg class="svg-inline--fa fa-whatsapp fa-w-14 icon" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="whatsapp" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg><!-- <i class="fab fa-whatsapp icon"></i> --><a href="https://wa.me/905013360046" target="_blank">Whatsapp</a>
+    </div>
+    @RenderBody()
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md ftco-animate">
+                            <div class="ftco-footer-widget mb-6">
+                                <h2 class="ftco-heading-2">Hacı Mehmet Etli Baklava</h2>
+                                <ul class="list-unstyled">
+                                    <li><a href="@Url.Action("Index", "Home")" class="py-2 d-block">Anasayfa</a></li>
+                                    <li><a href="@Url.Action("Index", "Urunler")" class="py-2 d-block">Ürünler</a></li>
+                                    <li><a href="@Url.Action("Index", "Hakkimizda")" class="py-2 d-block">Hakkımızda</a></li>
+                                    <li><a href="@Url.Action("Index", "Iletisim")" class="py-2 d-block">İletişim</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md ftco-animate">
+                            <div class="ftco-footer-widget mb-6">
+                                <h2 class="ftco-heading-2">Kategoriler</h2>
+                                <ul class="list-unstyled">
+                                    @{Html.RenderAction("FooterKategoriler", "Partial");}
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="ftco-footer-widget mb-4">
+                        <ul class="ftco-footer-social list-unstyled float-md-right float-lft">
+                            <p><a href="@Url.Action("SiparisVer","Urunler")" class="btn btn-outline-white btn-lg ftco-animate">Hemen Sipariş Ver</a></p>
+                            <br />
+                            <li class="ftco-animate"><a href="https://wa.me/905013360046"><span class="fab fa-whatsapp"></span></a></li>
+                            <li class="ftco-animate"><a href="tel:+902125373346"><span class="fas fa-phone-alt"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row ftco-animate">
+                <div class="col-md text-left">
+                    <p>&copy; Tüm Hakları Saklıdır <a href="">hacimehmetetli.com</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+    <div id="myOverlay" class="overlay">
+        <span class="closebtn" onclick="closeSearch()" title="Close Overlay" style="color:white; margin-top:60px;">x</span>
+        <div class="overlay-content">
+            <form method="post" action="@Url.Action("HomeSearch", "Urunler")">
+                <input type="text" placeholder="Ürün Ara" name="searchkey">              
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function openSearch() {
+            document.getElementById("myOverlay").style.display = "block";
+        }
+
+        function closeSearch() {
+            document.getElementById("myOverlay").style.display = "none";
+        }
+    </script>
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/bootstrap-datepicker.js"></script>
+    <script src="~/js/jquery.timepicker.min.js"></script>
+    <script src="~/js/jquery.animateNumber.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="~/js/google-map.js"></script>
+    <script src="~/js/main.js"></script>
+
+
+</body>
+</html>

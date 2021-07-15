@@ -1,0 +1,60 @@
+﻿@model hacimehmetli.Models.Entity.ordertable
+@{
+    ViewBag.Title = "Siparis Gor";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<div class="page-header row no-gutters py-4">
+    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Sipariş Detayları</span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3>Sipariş Bilgileri</h3>
+    </div>
+    <div class="col-lg-3">Sipariş Durumu  </div>
+    <div class="col-lg-9">@Model.orderstatu.status</div>
+    <div class="col-lg-3">Ürün  </div>
+    <div class="col-lg-9">@Model.producttable.productname</div>
+    <div class="col-lg-3">Adet  </div>
+    <div class="col-lg-9">@Model.piece KG/Adet</div>
+    <div class="col-lg-3">Teslimat Zamanı  </div>
+    <div class="col-lg-9">@Model.deliverydate</div>    
+</div>
+<br /><br />
+<div class="row">
+    <div class="col-lg-12">
+        <h3>Adres Bilgileri</h3>
+    </div>
+    <div class="col-lg-3">Sipariş Veren  </div>
+    <div class="col-lg-9">@Model.namesurname</div>
+    <div class="col-lg-3">Telefon  </div>
+    <div class="col-lg-9">@Model.gsm</div>
+    <div class="col-lg-3">Adres  </div>
+    <div class="col-lg-9">@Model.adress</div>
+
+    
+</div>
+<br /><br />
+<div class="row">
+    
+    <div class="col-lg-6">
+        @if (Model.orderstatu.id != 1)
+        {
+            <a href="@Url.Action("SiparisNext", "Admin" , new { id = Model.id })">Siparişi Bir Önceki Aşamaya Getir</a>
+        }
+
+    </div>
+    <div class="col-lg-6">
+        @if (Model.orderstatu.id != 4)
+        {
+            <a href="@Url.Action("SiparisNext", "Admin" , new { id = Model.id })">Siparişi Bir Sonraki Aşamaya Getir</a>
+        }
+
+    </div>
+    <div class="col-lg-12">
+        <a href="@Url.Action("ExcelExport","Admin", new { id = Model.id })"><button class="btn btn-default">Excel'e Aktar</button></a>
+    </div>
+</div>

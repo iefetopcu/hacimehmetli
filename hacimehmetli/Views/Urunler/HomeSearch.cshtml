@@ -1,0 +1,45 @@
+﻿@using hacimehmetli.Models.Entity
+@{
+    ViewBag.Title = "Ürün Ara";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="ftco-section bg-light" id="section-offer">
+    <div class="container">
+        <div class="row text-center">
+            
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center mb-5 ftco-animate">
+                <h4 class="ftco-sub-title"><span style="color:#808080;"> Aranan Kelime </span> <span style="color:#ff6a00;">@ViewBag.Words</span></h4>
+                <br /><h2 class="display-4">Bulunan Ürünler </h2>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var search in Model)
+            {
+                <div class="col-md-4">
+                    <div class="ftco-owl">
+                        <div class="item">
+                            <div class="media d-block mb-4 text-center ftco-media ftco-animate border-0">
+                                <a href="@Url.Action("Urun", "Urunler" , new { id = search.id })">
+                                    <img src="@search.productphotourl" alt="@search.productphotourl" class="img-fluid">
+                                </a>
+                                <div class="media-body p-md-5 p-4">
+                                    <h5 class="text-primary">@search.productprice TL</h5>
+                                    <a href="@Url.Action("Urun", "Urunler" , new { id = search.id })">
+                                        <h5 class="mt-0 h4">@search.productname</h5>
+                                    </a>
+                                    <p class="mb-4">@search.productdescription</p>
+
+                                    <p class="mb-0"><a href="@Url.Action("SiparisVer", "Urunler" , new { id = search.id })" class="btn btn-primary btn-sm">Sipariş Ver!</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+<style>
+    .chartdiv {
+        font-weight: bold !important;
+        margin-top: 25px;
+        border-left: 2px solid red;
+        border-bottom: 2px solid red;
+        padding: 10px;
+        border-radius: 25px;
+        text-align: center;
+    }
+
+    .chartdiv span{
+        color:black;
+        
+    }
+
+   
+</style>
+<div class="page-header row no-gutters py-4">
+    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Hacı Mehmet Etli Admin Paneli</span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 chartdiv">
+        <h5 style="color:#ff6a00">Kategori Sayısı :<span>@ViewBag.Kategori</span> </h5>
+    </div>
+    <div class="col-lg-6 chartdiv">
+        <h5 style="color:#ff6a00">Stokta Olan Ürün Sayısı :<span>@ViewBag.StoktaOlanUrunler</span> </h5>
+        <h5 style="color:#ff6a00">Stokta Olmayan Ürün Sayısı :<span>@ViewBag.StoktaOlmayanUrunler</span></h5>
+        <h5 style="color:#ff6a00">Tüm Ürün Sayısı :<span>@ViewBag.TumUrunler</span> </h5>
+    </div>
+    <div class="col-lg-6 chartdiv">
+        <h5 style="color:#ff6a00">İşlem Bekleyen Sipariş Sayısı :<span>@ViewBag.IslemBekleyenSiparisler</span> </h5>
+        <h5 style="color:#ff6a00">Hazirlaniyor Aşamasında Olan Sipariş Sayısı :<span>@ViewBag.HazirlananSiparisler</span> </h5>
+        <h5 style="color:#ff6a00">Teslim Aşamasında Olan Sipariş Sayısı :<span>@ViewBag.TeslimAsamasindaSiparisler</span> </h5>
+        <h5 style="color:#ff6a00">Teslim Edilmiş Sipariş Sayısı : <span>@ViewBag.TeslimEdilmisSiparisler</span></h5>
+        <h5 style="color:#ff6a00">Toplam Gelen Sipariş Sayısı :<span>@ViewBag.ToplamSiparis</span> </h5>
+    </div>
+    <div class="col-lg-6 chartdiv">
+        <h5 style="color:#ff6a00">Toplam Mesaj Sayısı :<span>@ViewBag.TumMesajlar</span> </h5>
+        <h5 style="color:#ff6a00">Okunmamış Mesaj Sayısı :<span>@ViewBag.OkunmamisMesajlar</span> </h5>
+        <h5 style="color:#ff6a00">Okunmuş Mesaj Sayısı :<span>@ViewBag.OkunmusMesajlar</span></h5>
+    </div>
+</div>
+

@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Urunler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .menulist {
+        float: left;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-decoration: none;
+        list-style: none;
+        margin-bottom: 25px !important;
+        border-left: 1px solid;
+    }
+
+        .menulist a {
+            font-size: 16px !important;
+        }
+
+            .menulist a:hover {
+                font-size: 18px !important;
+            }
+</style>
+
+
+<section class="ftco-section bgsoftyesil" id="section-offer">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12 text-center mb-5 ftco-animate">
+                <ul>
+                    <li class="menulist"><a href="@Url.Action("Index", "Urunler")">Çok Satanlar</a></li>
+                    @{Html.RenderAction("Kategoriler", "Partial");}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center mb-5 ftco-animate">
+                <h4 class="ftco-sub-title">ÜRÜNLER</h4>
+                <h2 class="display-4">Çok Satanlar</h2>
+            </div>
+        </div>
+        <div class="row">
+            @{Html.RenderAction("EnCokSatanlar", "Partial");}
+        </div>
+    </div>
+</section>
+
+

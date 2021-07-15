@@ -1,0 +1,50 @@
+﻿@using hacimehmetli.Models.Entity
+@{
+    ViewBag.Title = "Urunler";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+<script>
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+    })
+</script>
+
+<div class="page-header row no-gutters py-4">
+    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Ürünler</span>
+    </div>
+</div>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Yeni Ürün Ekle
+</button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Ürün Adı</th>
+            <th scope="col">Ürün Kategorisi</th>
+            <th scope="col">İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var urun in Model)
+        {
+            <tr>
+                <th scope="row">@urun.id</th>
+                <td>@urun.productname</td>
+                <td>@urun.categorytable.categoryname</td>
+                <td>
+                    <a href="@Url.Action("UrunSil", "Admin" , new { id = urun.id })"><button type="button" class="btn btn-danger">Sil</button></a>
+                    <a href="@Url.Action("UrunDuzenle", "Admin" , new { id = urun.id })"><button type="button" class="btn btn-info">Düzenle</button></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            @{Html.RenderAction("UrunForm", "PartialAdmin");}
+        </div>
+    </div>
+</div>

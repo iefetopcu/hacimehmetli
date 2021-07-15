@@ -1,0 +1,91 @@
+﻿@using hacimehmetli.Models.Entity
+@{
+    ViewBag.Title = "Siparis";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<div class="page-header row no-gutters py-4">
+    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Siparişler</span>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Ürün Adı</th>
+            <th scope="col">Ad Soyad</th>           
+            <th scope="col">Sipariş Durumu</th>
+            <th scope="col">Teslimat Zamanı</th>
+            <th scope="col">Sipariş Durum Güncelle</th>
+            <th scope="col">İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var siparis in Model)
+        {
+        <tr>
+            <th scope="row">@siparis.id</th>
+            <td>@siparis.producttable.productname</td>
+            <td>@siparis.namesurname</td>
+            @if (siparis.orderstatu.id == 1)
+            {
+                <td style="color:#a12f1a">@siparis.orderstatu.status</td>
+            }
+            @if (siparis.orderstatu.id == 2)
+            {
+                <td style="color:#ef5d2e">@siparis.orderstatu.status</td>
+            }
+            @if (siparis.orderstatu.id == 3)
+            {
+                <td style="color:#ad9617">@siparis.orderstatu.status</td>
+            }
+            @if (siparis.orderstatu.id == 4)
+            {
+                <td style="color:#189622">@siparis.orderstatu.status</td>
+            }
+
+            <td>@siparis.deliverydate</td>
+
+            @if (siparis.orderstatu.id == 1)
+            {
+                <td>
+                    <a href="@Url.Action("SiparisNext", "Admin" , new { id = siparis.id })"><button type="button" class="btn btn-warning">Durum İlerlet</button></a>
+                </td>
+            }
+            @if (siparis.orderstatu.id == 2)
+            {
+                <td>
+                    
+                    <a href="@Url.Action("SiparisBack", "Admin" , new { id = siparis.id })"><button type="button" class="btn btn-primary">Durum Geri Al</button></a>
+                    <a href="@Url.Action("SiparisNext", "Admin" , new { id = siparis.id })"><button type="button" class="btn btn-warning">Durum İlerlet</button></a>
+                </td>
+            }
+            @if (siparis.orderstatu.id == 3)
+            {
+        <td>
+
+            <a href="@Url.Action("SiparisBack", "Admin" , new { id = siparis.id })"><button type="button" class="btn btn-primary">Durum Geri Al</button></a>
+            <a href="@Url.Action("SiparisNext", "Admin" , new { id = siparis.id })"><button type="button" class="btn btn-warning">Durum İlerlet</button></a>
+        </td>
+            }
+            @if (siparis.orderstatu.id == 4)
+            {
+                <td>
+                    
+                    <a href="@Url.Action("SiparisBack", "Admin" , new { id = siparis.id })"><button type="button" class="btn btn-primary">Durum Geri Al</button></a>
+                </td>
+            }
+
+            <td>
+
+
+
+                <a href="@Url.Action("SiparisSil", "Admin" , new { id = siparis.id })" onclick="return confirm('Bu Siparişi Silmek İstediğine Emin Misin?')"><button type="button" class="btn btn-danger">Sil</button></a>
+                <a href="@Url.Action("SiparisGor", "Admin" , new { id = siparis.id })"><button type="button" class="btn btn-outline-secondary">Detay</button></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

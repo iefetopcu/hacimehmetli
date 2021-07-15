@@ -1,0 +1,43 @@
+﻿@model IEnumerable<hacimehmetli.Models.Entity.menu>
+@{
+    ViewBag.Title = "Menu Hacı Mehmet ETli Baklava";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="ftco-section bgsoftyesil" id="section-menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center mb-5 ftco-animate">
+                <h4 class="ftco-sub-title"><span style="color:#ff6a00;">HACI MEHMET ETLİ</span></h4>
+                <br /><h2 class="display-4">Menü</h2>
+            </div>
+            <div class="col-md-12 text-center">
+                @foreach (var group in Model.GroupBy(item => item.categorytable.categoryname))
+                {
+                    <div class="col-lg-12" style="height:40px; background:#ff6a00; color:white; font-size:20px;padding:5px; text-align:center;">
+                        <span>@group.Key</span>
+                    </div>
+                    <div class="tab-content text-left">
+                        <div class="tab-pane fade show active" id="pills-breakfast" role="tabpanel" aria-labelledby="pills-breakfast-tab">
+                            <div class="row">
+                                @foreach (var qrmenu in group)
+                                {
+                                    <div class="col-md-6 mt-2 ftco-animate">
+                                        <div class="media menu-item">
+                                            <img class="mr-3" src="@qrmenu.urunphotourl" class="img-fluid" alt="Free Template by Free-Template.co">
+                                            <div class="media-body">
+                                                <h5 class="mt-0">@qrmenu.urunadi</h5>
+                                                <p>@qrmenu.urunaciklamasi</p>
+                                                <h6 class="text-primary menu-price"><span class="text-primary menu-price">@qrmenu.urunporsiyon</span> ₺ @qrmenu.urunfiyati </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            </div>
+                    </div>
+                }
+                </div>
+            </div>
+        </div>
+    </section>
