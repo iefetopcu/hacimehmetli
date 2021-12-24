@@ -383,7 +383,6 @@
     <Content Include="Views\Partial\Vitrin.cshtml" />
     <Content Include="Views\Partial\EnCokSatanlar.cshtml" />
     <Content Include="Views\Admin\UrunDuzenle.cshtml" />
-    <Content Include="Views\Urunler\SiparisVer.cshtml" />
     <Content Include="Views\Partial\FooterKategoriler.cshtml" />
     <Content Include="Views\Urunler\Urun.cshtml" />
     <Content Include="Views\Iletisim\Index.cshtml" />

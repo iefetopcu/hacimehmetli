@@ -12,7 +12,7 @@
                 <h2 class="ftco-primary-title display-4">@Model.productname</h2>
                 <p>@Model.productdescription</p><br />
                 <span class="mb-4" style="font-size:20px; color:#808080; margin-right:30px;">@Model.productporsiyon </span> | 
-                <span class="mb-4" style="font-size:20px; color:#ff6a00; margin-left:30px;">@Model.productprice ₺</span>
+                
                 <br /><br />
                 @if (Model.isitinstock == "true")
                 {
@@ -22,7 +22,7 @@
                 {
                     <p style="color:#821212">Stokta Yok</p>
                 }
-                <p><a href="@Url.Action("SiparisVer", "Urunler" , new { id = Model.id })" class="btn btn-secondary btn-lg">Sipariş Ver</a></p>
+                
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-6 ftco-animate img" data-animate-effect="fadeInRight">

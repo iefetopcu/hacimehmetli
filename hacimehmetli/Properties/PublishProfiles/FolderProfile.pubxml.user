@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\EfeTopcu\Desktop\hacimehmetetli publish\v3</_PublishTargetUrl>
-    <History>True|2021-05-04T23:11:49.3426156Z;True|2021-04-29T03:06:11.8465054+03:00;True|2021-04-29T03:04:39.7242976+03:00;True|2021-04-29T02:56:57.1780522+03:00;</History>
+    <_PublishTargetUrl>C:\Users\EfeTopcu\Desktop\hacipublish</_PublishTargetUrl>
+    <History>True|2021-12-22T19:57:00.6157676Z;True|2021-05-05T02:11:49.3426156+03:00;True|2021-04-29T03:06:11.8465054+03:00;True|2021-04-29T03:04:39.7242976+03:00;True|2021-04-29T02:56:57.1780522+03:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -24,10 +24,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/16/2021 08:52:56</publishTime>
     </File>
     <File Include="bin/hacimehmetli.dll">
-      <publishTime>05/11/2021 15:17:49</publishTime>
+      <publishTime>12/22/2021 22:56:59</publishTime>
     </File>
     <File Include="bin/hacimehmetli.pdb">
-      <publishTime>05/11/2021 15:17:49</publishTime>
+      <publishTime>12/22/2021 22:56:59</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>09/05/2018 16:10:50</publishTime>
@@ -723,7 +723,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/23/2021 04:41:02</publishTime>
     </File>
     <File Include="Views/Partial/EnCokSatanlar.cshtml">
-      <publishTime>05/05/2021 02:09:56</publishTime>
+      <publishTime>12/22/2021 22:53:05</publishTime>
     </File>
     <File Include="Views/Partial/FooterKategoriler.cshtml">
       <publishTime>04/22/2021 00:30:08</publishTime>
@@ -738,7 +738,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/09/2021 15:26:15</publishTime>
     </File>
     <File Include="Views/Partial/Vitrin.cshtml">
-      <publishTime>05/05/2021 02:10:25</publishTime>
+      <publishTime>12/22/2021 22:53:17</publishTime>
     </File>
     <File Include="Views/PartialAdmin/QRMenu.cshtml">
       <publishTime>04/27/2021 18:13:38</publishTime>
@@ -756,7 +756,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/14/2021 16:01:05</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>05/09/2021 15:45:30</publishTime>
+      <publishTime>12/22/2021 22:55:24</publishTime>
     </File>
     <File Include="Views/Urunler/HomeSearch.cshtml">
       <publishTime>04/26/2021 19:02:17</publishTime>
@@ -765,13 +765,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/09/2021 15:46:40</publishTime>
     </File>
     <File Include="Views/Urunler/Kategori.cshtml">
-      <publishTime>05/05/2021 02:10:58</publishTime>
+      <publishTime>12/22/2021 22:52:15</publishTime>
     </File>
     <File Include="Views/Urunler/SiparisVer.cshtml">
       <publishTime>05/09/2021 15:48:36</publishTime>
     </File>
     <File Include="Views/Urunler/Urun.cshtml">
-      <publishTime>04/29/2021 01:57:07</publishTime>
+      <publishTime>12/22/2021 22:52:19</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>04/14/2021 16:01:05</publishTime>
